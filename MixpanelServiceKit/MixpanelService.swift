@@ -10,7 +10,7 @@ import LoopKit
 
 public final class MixpanelService: Service {
 
-    public static let pluginIdentifier = "MixpanelService"
+    public let pluginIdentifier = "MixpanelService"
 
     public static let localizedTitle = LocalizedString("Mixpanel", comment: "The title of the Mixpanel service")
 
