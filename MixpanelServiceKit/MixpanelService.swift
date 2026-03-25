@@ -12,6 +12,8 @@ public final class MixpanelService: Service {
 
     public static let pluginIdentifier = "MixpanelService"
 
+    public var pluginIdentifier: String { MixpanelService.pluginIdentifier }
+
     public static let localizedTitle = LocalizedString("Mixpanel", comment: "The title of the Mixpanel service")
 
     public weak var serviceDelegate: ServiceDelegate?
