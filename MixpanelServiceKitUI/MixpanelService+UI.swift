@@ -11,18 +11,18 @@ import LoopKitUI
 import MixpanelServiceKit
 import HealthKit
 
-extension MixpanelService: ServiceUI {
+extension MixpanelService: @retroactive ServiceUI {
     
     public static var image: UIImage? {
         UIImage(named: "mixpanel_logo", in: Bundle(for: MixpanelServiceTableViewController.self), compatibleWith: nil)!
     }
 
-    public static func setupViewController(colorPalette: LoopUIColorPalette, pluginHost: PluginHost) -> SetupUIResult<ServiceViewController, ServiceUI>
+    public static func setupViewController(colorPalette: LoopUIColorPalette, pluginHost: PluginHost, allowDebugFeatures: Bool) -> SetupUIResult<ServiceViewController, ServiceUI>
     {
         return .userInteractionRequired(ServiceNavigationController(rootViewController: MixpanelServiceTableViewController(service: MixpanelService(), for: .create)))
     }
     
-    public func settingsViewController(colorPalette: LoopUIColorPalette) -> ServiceViewController
+    public func settingsViewController(colorPalette: LoopUIColorPalette, allowDebugFeatures: Bool) -> ServiceViewController
     {
         return ServiceNavigationController(rootViewController: MixpanelServiceTableViewController(service: self, for: .update))
     }
